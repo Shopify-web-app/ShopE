@@ -1,3 +1,25 @@
-
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button class="icon" aria-label="icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+        </button>
+        <span>ShopeE</span>
+        <span class="spacer"></span>
+        <span class="nav-list">
+            <button mat-icon-button class="icon" aria-label="icon-button with login icon">
+                Login<mat-icon>login</mat-icon>
+            </button>
+            <button mat-icon-button class="icon favorite-icon" aria-label="icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="icon" aria-label="icon-button with shopping cart icon">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </span>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="toolbar-row">
+        <span>second row</span>
+    </mat-toolbar-row>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
