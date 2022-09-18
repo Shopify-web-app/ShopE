@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shope-4eb51": {
+      "hosting": {
+        "shopeee": [
+          "shope-4eb51"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shope-4eb51"
+  }
+}

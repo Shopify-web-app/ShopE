@@ -5,32 +5,49 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
-import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
-// import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     MatSidenavModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatTableModule,
     MatListModule,
+    MatIconModule,
     MatButtonModule,
-    MatIconModule
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    HotToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
