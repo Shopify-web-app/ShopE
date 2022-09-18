@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "shopeee:build:production",
+            "firebaseProject": "shope-4eb51",
+            "firebaseHostingSite": "shope-4eb51"
+          }
         }
       }
     }

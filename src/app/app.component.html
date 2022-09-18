@@ -6,15 +6,30 @@
         <span>ShopeE</span>
         <span class="spacer"></span>
         <span class="nav-list">
-            <button mat-icon-button class="icon" aria-label="icon-button with login icon">
+            <!-- <button mat-icon-button class="icon" aria-label="icon-button with login icon">
                 Login<mat-icon>login</mat-icon>
-            </button>
+            </button> -->
             <button mat-icon-button class="icon favorite-icon" aria-label="icon-button with heart icon">
                 <mat-icon>favorite</mat-icon>
             </button>
             <button mat-icon-button class="icon" aria-label="icon-button with shopping cart icon">
                 <mat-icon>shopping_cart</mat-icon>
             </button>
+
+            <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+                <button mat-button [mat-menu-trigger-for]="userMenu">
+                    <mat-icon>account_circle</mat-icon>
+                    {{user.displayName}}
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+            </ng-container>
+              
+            <ng-template #loginButton>
+              <button mat-button routerLink="login" >
+                <mat-icon>login</mat-icon>
+                Login
+              </button>
+            </ng-template>
         </span>
     </mat-toolbar-row>
     <mat-toolbar-row class="toolbar-row">
@@ -23,3 +38,6 @@
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>
